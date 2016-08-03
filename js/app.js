@@ -858,7 +858,7 @@ var MyCampusApp = {
 
 			push.on('registration', function(data) {
 				 alert ("Registration id : " + data.registrationId);
-				 $.jStorage.set("gcmregid",e.regid);
+				 $.jStorage.set("gcmregid", data.registrationId);
 
 			});
 
