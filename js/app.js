@@ -852,6 +852,34 @@ var MyCampusApp = {
 
     activatePushNotification : function(tenantId, pushconfig) {
         try {
+
+			var push = PushNotification.init({ "android": {"senderID": "59818635520"},
+			         "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+
+			push.on('registration', function(data) {
+				 alert ("Registration id : " + data.registrationId);
+				 $.jStorage.set("gcmregid",e.regid);
+
+			});
+
+			push.on('notification', function(data) {
+				alert ("message received: " + data.message);
+				// data.message,
+				// data.title,
+				// data.count,
+				// data.sound,
+				// data.image,
+				// data.additionalData
+			});
+
+			push.on('error', function(e) {
+				// e.message
+				alert ("Error : " + e.message);
+			});
+
+			if(true) {
+				return;
+			}
 			var pushNotification;
 			pushNotification = window.plugins.pushNotification;
 			alert ("Called activate push");
