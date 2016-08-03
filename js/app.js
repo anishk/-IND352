@@ -74,7 +74,7 @@ document.addEventListener('deviceready',onDeviceReady, false);
 
 var MyCampusApp = {
     config : {
-        tenant : "TENANT_ID",
+        tenant : " IND352",
         serverUrl : "https://kryptos.kryptosmobile.com",
         tenantFolder : function(device, tenant) {
             if(device.platform == 'Android') {
@@ -164,7 +164,7 @@ var MyCampusApp = {
             }).error(function(data){
                 });
         }
-        
+
         //Store update bug fix start (Nick)
         else {
 			if(!$rootScope.imageoptimized) {
@@ -191,7 +191,7 @@ var MyCampusApp = {
 			}
 		}
         //Store update bug fix end (Nick)
-        
+
         if(storedMetadata) {
             if($rootScope.loggedin) {
                 if($rootScope.userroles) {
@@ -563,8 +563,8 @@ var MyCampusApp = {
             icon = dockIcons[_i];
             _results.push(dock.append(icon.markup));
         }
-        
-        
+
+
         /* Commenting for icon issue during update manager - Start (Nick)
         var homedata = $("#homedata");
         homedata.html("");
@@ -596,9 +596,9 @@ var MyCampusApp = {
             pages: true
         });
         //End AK
-         
+
          Commenting for icon issue during update manager - end (Nick)*/
-         
+
         /*
          if(window.device) {
          $rootScope.brandingUrl = MyCampusApp.config.tenantFolder(window.device, tenant) + "branding?q=" + Math.random();
