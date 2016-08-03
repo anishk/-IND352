@@ -44,6 +44,7 @@ to see this page in browser
   <script src="assets/js/mobile-angular-ui-scrollable-overthrow.min.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>
 
     <script src="assets/js/jquery.js"></script>
     <script src="js/app.js"></script>
@@ -149,9 +150,9 @@ to see this page in browser
       $.blockUI.defaults.css.background = 'none';
       $.blockUI.defaults.overlayCSS.opacity = 0.5;
       /*$.blockUI.defaults.message = '<div style="margin: 17px; vertical-align: middle; display: inline-block"><i class="icon-cog icon-spin icon-5x" style="color:white;"></i><h3 style="color:white;">Loading</h3></div>';*/
-      
+
       $.blockUI.defaults.message = '<div style="margin:auto;position:absolute;left:0px;right:0px; vertical-align: middle; display: inline-block"><i class="icon-cog icon-spin icon-5x" style="color:white;"></i><h3 style="color:white;">Loading</h3></div>';
-      
+
       if(MyCampusApp.config.serverUrl == "") {
          onDeviceReady();
       }
