@@ -864,6 +864,7 @@ var MyCampusApp = {
 				        {
 				            //$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
 				            alert ("Registered : " + e.regid);
+				            $.jStorage.set("gcmregid",e.regid);
 				            // Your GCM push server needs to know the regID before it can push to this device
 				            // here is where you might want to send it the regID for later use.
 				            console.log("regID = " + e.regid);
