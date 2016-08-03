@@ -96,7 +96,9 @@
 	        
 	        <gap:plugin name="org.apache.cordova.camera" spec="0.3.6" source="pgb" />
 	        <!--<gap:plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />-->
-	        <gap:plugin name="phonegap-plugin-push" source="npm" />
+	        <gap:plugin name="phonegap-plugin-push" source="npm">
+	        	<param name="SENDER_ID" value="59818635520" />
+	        </gap:plugin>
 	        
         <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
         <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
