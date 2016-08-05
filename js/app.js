@@ -144,9 +144,6 @@ var MyCampusApp = {
                 $.jStorage.set('tenant', tenantid);
                 storedMetadata = data;
 
-                if(window.device) {
-                    MyCampusApp.activatePushNotification(tenantid, data.pushconfig);
-                }
                // var message = '<div style="margin: 2px; vertical-align: middle; display: inline-block"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
                 var message = '<style>.blockOverlay{opacity:1 !important;}</style><div style="margin:auto;position:fixed;left:0px;right:0px;vertical-align: middle; display: inline-block;"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
                 $.blockUI({message : message});
@@ -255,6 +252,8 @@ var MyCampusApp = {
             }
             window.eval(storedMetadata.authFunction);
         }
+
+		MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, data.pushconfig);
 
         if( $.jStorage.get('serverUrl') ) { // window.localStorage.getItem('serverUrl') ) {
             $rootScope.serverUrl =  $.jStorage.get('serverUrl');  //window.localStorage.getItem('serverUrl');
@@ -859,7 +858,12 @@ var MyCampusApp = {
 			push.on('registration', function(data) {
 				 alert ("Registration id : " + data.registrationId);
 				 $.jStorage.set("gcmregid", data.registrationId);
-
+				 $http.post("http://192.168.1.4:8080/kryptosds/v1/push/register?callback=JSON_CALLBACK", {
+					 tenantid : tenantId , devicetoken : data.registrationId, device: window.device}).
+				 success(function(data) {
+					 //Ignore
+					 alert ("Data : " + JSON.stringify(data));
+				 });
 			});
 
 			push.on('notification', function(data) {
