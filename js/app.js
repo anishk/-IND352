@@ -251,7 +251,7 @@ var MyCampusApp = {
                 //Ignore..
             }
             window.eval(storedMetadata.authFunction);
-            MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, storedMetadata.pushconfig);
+            MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, storedMetadata.pushconfig, $http);
         }
 
 
@@ -850,7 +850,7 @@ var MyCampusApp = {
             });
     },
 
-    activatePushNotification : function(tenantId, pushconfig) {
+    activatePushNotification : function(tenantId, pushconfig, $http) {
         try {
 
 			var push = PushNotification.init({ "android": {"senderID": "59818635520"},
