@@ -251,9 +251,10 @@ var MyCampusApp = {
                 //Ignore..
             }
             window.eval(storedMetadata.authFunction);
+            MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, storedMetadata.pushconfig);
         }
 
-		MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, data.pushconfig);
+
 
         if( $.jStorage.get('serverUrl') ) { // window.localStorage.getItem('serverUrl') ) {
             $rootScope.serverUrl =  $.jStorage.get('serverUrl');  //window.localStorage.getItem('serverUrl');
