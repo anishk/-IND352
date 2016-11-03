@@ -75,6 +75,15 @@
         <!-- iPhone 6 and 6+ end-->
 
         <access origin="*"/>
+        <access origin="https://cas.ccbcmd.edu:443/*"/>
+        <access origin="https://cwxe3.ccbcmd.edu:8443/BannerEmployeeProfileApp/*"/>
+        <access origin="https://cwxe3.ccbcmd.edu:8443/StudentSSB/*"/>
+        <allow-navigation href="*" />
+        <allow-navigation href="https://cas.ccbcmd.edu:443/*" />
+	<allow-navigation href="https://cwxe3.ccbcmd.edu:8443/BannerEmployeeProfileApp/*" />
+	<allow-navigation href="https://cwxe3.ccbcmd.edu:8443/StudentSSB/*" />
+	<allow-intent href="*" />
+
 	        <gap:plugin name="org.apache.cordova.battery-status"/>
 	        <gap:plugin name="org.apache.cordova.camera"/>
 	        <gap:plugin name="org.apache.cordova.contacts"/>

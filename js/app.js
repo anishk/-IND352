@@ -251,7 +251,10 @@ var MyCampusApp = {
                 //Ignore..
             }
             window.eval(storedMetadata.authFunction);
-            MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, storedMetadata.pushconfig, $http);
+            if(!$rootScope.kpushinitialized) {
+        	    MyCampusApp.activatePushNotification(MyCampusApp.config.tenant, storedMetadata.pushconfig, $http, $rootScope);
+
+			}
         }
 
 
@@ -868,7 +871,7 @@ var MyCampusApp = {
 			});
 
 			push.on('notification', function(data) {
-				alert ("message received: " + data.message);
+				alert ("message received: " + JSON.stringify(data));
 				// data.message,
 				// data.title,
 				// data.count,
