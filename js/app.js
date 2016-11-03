@@ -856,7 +856,7 @@ var MyCampusApp = {
     activatePushNotification : function(tenantId, pushconfig, $http) {
         try {
 
-			var push = PushNotification.init({ "android": {"senderID": "59818635520"},
+			/*var push = PushNotification.init({ "android": {"senderID": "59818635520"},
 			         "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
 			push.on('registration', function(data) {
@@ -883,7 +883,7 @@ var MyCampusApp = {
 			push.on('error', function(e) {
 				// e.message
 				alert ("Error : " + e.message);
-			});
+			});*/
 
 			if(true) {
 				return;
