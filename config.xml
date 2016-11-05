@@ -102,7 +102,7 @@
 
 	        <gap:plugin name="cordova-plugin-statusbar" source="npm"/>
 	        
-	        <gap:plugin name="phonegap-plugin-push" source="npm">
+	        <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.8.2">
 	        	<param name="SENDER_ID" value="59818635520" />
 	        </gap:plugin>
 	        
