@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 67,
   "tenantid": "IND352",
   "mobappid": 1510,
   "appName": "MyRestaurant",
@@ -169,7 +169,77 @@
           "pageid": "Pushdata",
           "pageTemplate": "<div><\/div>",
           "pageprocessor": "function pageprocessorPushdata(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  var data1 = $compile($(pagedef.datatemplate))($scope);\r\n  $(\"#appContent\").append(data1);\r\n  $scope.pushkey = $.jStorage.get('gcmregid');\r\n  $scope.send = function() {\r\n    window.plugin.email.open({\r\n      to: [\"ak@kryptomobile.com\"],\r\n      cc: [\"ak@kryptosmobile.com\"],\r\n      subject: 'Push Key ' + $scope.pushkey,\r\n      body: 'Push key : ' + $scope.pushkey,\r\n      isHtml: true\r\n    });\r\n  }\r\n}",
-          "datatemplate": "<div>\r\n  <h1>Push key : {{pushkey}}<\/h1>\r\n  <button class=\"btn btn-primary\" ng-click=\"send\">Send<\/button>\r\n<\/div>"
+          "datatemplate": "<div>\r\n  <h1>Push key : {{pushkey}}<\/h1>\r\n  <button class=\"btn btn-primary\" ng-click=\"send();\">Send<\/button>\r\n<\/div>"
+        }
+      ]
+    },
+    {
+      "id": 33956,
+      "name": "TESTCCBC",
+      "displayname": "TESTCCBC",
+      "logo": "IND352/TESTCCBC.png",
+      "logourl": "IND352/TESTCCBC.png",
+      "description": "TESTCCBC",
+      "appFeatureType": "Public",
+      "roles": null,
+      "showInDock": false,
+      "showInHome": true,
+      "networkrequired": true,
+      "analytics": false,
+      "pages": 
+      [
+        {
+          "pageid": "TESTCCBC",
+          "pageTemplate": "<div><\/div>",
+          "pageprocessor": "function pageprocessorTESTCCBC(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  if (window.device) {\r\n    $.blockUI();\r\n  }\r\n  var iabRef = window.open(pagedef.url, \"_blank\", \"clearsessioncache=yes,clearcache=yes,location=yes,enableViewportScale=yes\");\r\n  var hideBlockUi = function() {\r\n    iabRef.show();\r\n    $.unblockUI();\r\n  };\r\n\r\n  var iabClose = function(data) {\r\n    window.location.href = \"index.html#home\";\r\n  };\r\n  iabRef.addEventListener(\"exit\", iabClose);\r\n\r\n  var loadStop = function(data) {\r\n    hideBlockUi();\r\n\r\n  };\r\n  var loadStart = function(data) {\r\n    if (data.url.indexOf(\"ajax\") != -1) {\r\n      alert (\"opening again\");\r\n      iabRef = window.open(\"https://cwxe3.ccbcmd.edu:8443/BannerEmployeeProfileApp/\", \"_blank\", \"clearsessioncache=no,clearcache=no,location=yes,enableViewportScale=yes\");\r\n    }\r\n  }\r\n\r\n  iabRef.addEventListener(\"loadstop\", loadStop);\r\n  iabRef.addEventListener(\"loadstart\", loadStart);\r\n}",
+          "url": "https://xe.ccbcmd.edu:8443/BannerEmployeeProfileApp/"
+        }
+      ]
+    },
+    {
+      "id": 33992,
+      "name": "TESTQL",
+      "displayname": "TESTQL",
+      "logo": "IND352/TESTQL.png",
+      "logourl": "IND352/TESTQL.png",
+      "description": "TESTQL",
+      "appFeatureType": "Public",
+      "roles": null,
+      "showInDock": false,
+      "showInHome": true,
+      "networkrequired": true,
+      "analytics": false,
+      "pages": 
+      [
+        {
+          "pageid": "TESTQL",
+          "pageTemplate": "<div><\/div>",
+          "pageprocessor": "function pageprocessorTESTQL(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n  $.blockUI();\r\n  var casurl = pagedef.casurl;\r\n  var qlssourl = pagedef.qlssourl;\r\n  var launchurl = pagedef.casurl + \"/cas/login?service=\" + qlssourl;\r\n  var iabRef = window.open(launchurl, \"_blank\", \"location=yes,hidden=no,clearcache=yes,enableViewportScale=yes\");\r\n  var iabClose = function(data) {\r\n    window.location.href = \"index.html#home\";\r\n  };\r\n  iabRef.addEventListener(\"exit\", iabClose);\r\n  var hideBlockUi = function() {\r\n    iabRef.show();\r\n    $.unblockUI();\r\n  };\r\n  var username = \"LDA743774\";\r\n  var password = \"password\";\r\n  var cd = \"document.getElementById('username').value = '\" + username + \"';document.getElementById('password').value = '\" + password + \"';document.getElementsByClassName('btn-submit')[0].click();\";\r\n  var cb = function(data) {};\r\n  var loadStop = function(data) {\r\n    iabRef.executeScript({\r\n      code: cd\r\n    }, cb);\r\n    if (data.url.indexOf(\"ticket\") != -1) {\r\n      hideBlockUi();\r\n    }\r\n  };\r\n  var loadStart = function(data) {\r\n    alert(data.url);\r\n  }\r\n  var loadError = function(data) {\r\n    alert (\"Load error..\" + data); \r\n  }\r\n  iabRef.addEventListener(\"loadstop\", loadStop);\r\n  iabRef.addEventListener(\"loadstart\", loadStart);\r\n  iabRef.addEventListener(\"loaderror\", loadError);\r\n}",
+          "casurl": "https://cas.ccbcmd.edu:8443/cas",
+          "qlssourl": "https://cwxe3.ccbcmd.edu:8443/BannerEmployeeProfileApp/ssb/hrDashboard/"
+        }
+      ]
+    },
+    {
+      "id": 33995,
+      "name": "TESTIFrame2",
+      "displayname": "TESTIFrame",
+      "logo": "IND352/TESTIFrame2.png",
+      "logourl": "IND352/TESTIFrame2.png",
+      "description": "TESTIFrame",
+      "appFeatureType": "Public",
+      "roles": null,
+      "showInDock": false,
+      "showInHome": true,
+      "networkrequired": true,
+      "analytics": false,
+      "pages": 
+      [
+        {
+          "pageid": "TESTIFrame2",
+          "pageTemplate": "<div><\/div>",
+          "pageprocessor": "function pageprocessorTESTIFrame2(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n    var data1 = $compile($(pagedef.datatemplate))($scope);\r\n    $(\"#appContent\").append(data1);\r\n    if ($.jStorage.get(\"deviceID\") == null || $.jStorage.get(\"deviceID\") == undefined) {\r\n        MyCampusApp.rootScope.push = PushNotification.init({\r\n            android: {\r\n                senderID: \"1083782500228\"\r\n            },\r\n            browser: {\r\n                pushServiceURL: 'http://push.api.phonegap.com/v1/push'\r\n            },\r\n            ios: {\r\n                alert: \"true\",\r\n                badge: \"true\",\r\n                sound: \"true\"\r\n            },\r\n            windows: {}\r\n        });\r\n        MyCampusApp.rootScope.push.on('registration', function(data) {\r\n            var devicePushID = data.registrationId;\r\n            //alert(devicePushID);\r\n            var pushDeviceData = {\r\n                \"tenant\": \"SERODEMO\",\r\n                \"id\": devicePushID,\r\n                \"type\": device.platform,\r\n                \"channel\": \"all\"\r\n            };\r\n\r\n            $http.post(\"http://192.168.1.4:8082/kryptosds/push/adddeviceToChannel\", pushDeviceData).success(function(response) {\r\n                $.unblockUI();\r\n                $.jStorage.set(\"deviceID\", devicePushID);\r\n                $location.path(\"/app/Home4/Home4\");\r\n                //alert(JSON.stringify(response));\r\n            }).\r\n            error(function(err) {\r\n                $.unblockUI();\r\n                alert(\"err\" + JSON.stringify(response));\r\n            });\r\n\r\n        });\r\n    }\r\n\r\n}",
+          "datatemplate": "<div>\r\n  <h1>Here is a sample HTML content..!!<\/h1><\/div>\r\n<iframe src=\"https://cwxe3.ccbcmd.edu:8443/BannerEmployeeProfileApp/\" style=\"width:100%;height:800px;\"><\/iframe>"
         }
       ]
     }
